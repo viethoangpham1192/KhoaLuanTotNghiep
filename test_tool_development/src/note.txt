@@ -1,0 +1,81 @@
+
+
+
+
+    - render: dùng để render một thành phần trong môi trường kiểm thử ảo
+    render sẽ trả về các phương thức kiểm thử như getByTestId, getByText, queryByText
+    ta có thể tương tác với các component này thông qua fireEvent
+
+    - queries: là tính năng quan trong nhất của hàm render, nó cung cấp tập hợp các
+    hàm truy vấn hữu ích cho phép tìm thấy các phần tử cụ thể như getByTestId, getByText
+
+    - update: là hàm sử dụng để rerender cây, nếu phần tử mới được update cùng loại và khóa như
+    phần tử trước đó, cây sẽ được cập nhật, nếu không nó sẽ gắn một cây mới.
+
+    - toJSON: trả về JSON của thành phần
+
+    - root: trả về thành phần gốc
+
+    - screen: trả về hàm render mới nhất, từ đó gọi đến các queries, vd screen.getByText
+
+    - cleanup: liên quan đến việc dọn dẹp (hoặc giải phóng) tài nguyên và trạng thái sau
+    mỗi lần kiểm thử để đảm bảo rằng các kiểm thử không ảnh hưởng lẫn nhau và không gây
+    ra lỗi không mong muốn
+
+    thông thường cleanup sẽ được tự động thực hiện nếu đang test với jest, mocha, jasmine
+
+    - fireEvent: cho phép kích hoạch các sự kiện như là press onChangeText đến các thành phần
+
+    - waitFor: sử dụng để test các hàm bất đồng bộ, khi gọi hàm bất đồng bộ, ui sẽ chưa thay đổi luôn
+    vì vậy sử dụng waitFor để chờ đến khi ui thay đổi.
+
+    - waitForElementToBeRemoved:  kiểm tra xem một phần tử có được xóa khỏi giao diện người dùng sau một
+    tương tác nhất định hay không. chờ đến khi phần tử được xóa mới thực hiện các thao tác bên dưới
+
+    - within: giới hạn phạm vi tìm kiếm các phần tử con bên trong một phần tử cha cụ thể, dùng để tìm kiến
+    các phần thử con trong một phần tử cha.
+
+    - getQueriesForElement: cho phép tạo các phương thức truy vấn tùy chỉnh cho một phần tử cụ thể và
+    linh hoạt hơn trong việc kiểm tra và tương tác với phần tử đã chọn.
+
+    - renderHook: sử dụng để test cho hook, lưu ý các hàm gọi trong hook cần phải để trong act
+
+
+
+
+v    - getAllTextOf
+v    - getAllPlaceholderOf
+v    - getAllTypeOf
+v    - getAllValueOf
+
+v    - getValueOf
+v    - getPropsOf
+v    - getStyleOf
+v    - getTypeOf
+v    - getParentOf
+v    - getChildrenOf
+
+v    - toInclude
+v    - toEqualInPairs
+
+v    - toHaveText
+v    - toHavePlaceholder
+v    - toHaveProps
+v    - toHaveValue                                                          //
+v    - toHaveType
+v    - toIncludeElement
+
+v    - toBeOfStyle
+v    - toBeOfType
+v    - toBeDisable
+v    - toBeEnable
+x    - toBeOnScreen
+x    - toBeHidden
+
+
+- kiểm thử, giữa cải tiến và chưa cải tiến
+- lập bảng hiệu suất
+- tính ổn định
+- tính năng
+- ưu điểm
+- nhược điểm
