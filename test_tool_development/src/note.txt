@@ -79,3 +79,9 @@ x    - toBeHidden
 - tính năng
 - ưu điểm
 - nhược điểm
+
+
+- mở rộng là gì?
+
+
+- xxx thư viện kiểm thử do react

@@ -1,4 +1,4 @@
-import {create, type ReactTestInstance} from 'react-test-renderer';
+import {type ReactTestInstance} from 'react-test-renderer';
 
 import {extractObjects} from './utils';
 import {ElementType} from 'react';

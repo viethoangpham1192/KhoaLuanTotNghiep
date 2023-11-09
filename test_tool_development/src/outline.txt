@@ -1,0 +1,69 @@
+- Chương 1: React Native
+    - 1.1 React Native là gì ?
+    - 1.2 Nguyên tắc hoạt động của React Native
+    - 1.3 Lý do chọn React Native
+
+- Chương 2: Kiểm thử trong ứng dụng React Native
+    - 2.1 Tầm quan trọng của kiểm thử
+    - 2.2 Cấu trúc mã kiểm thử
+    - 2.3 Kiểm thử đơn vị
+        - 2.3.1 Mô phỏng dữ liệu
+    - 2.4 Kiểm thử tích hợp
+    - 2.5 Kiểm thử thành phần
+        - 2.5.1 Kiểm thử tương tác người dùng
+        - 2.5.2 Kiểm thử kết quả hiện thị trả về
+    - 2.6 Kiểm thử end-to-end
+
+- Chương 3: Các công cụ kiểm thử React Native
+    - 2.1 Jest
+        - 2.1.1 Giới thiệu về Jest
+        - 2.1.2 Cài đặt cấu hình
+        - 2.1.3 Tổ chức thư mục
+        - 2.1.4 Cấu trúc mã kiểm thử
+        - 2.1.5 Các hàm Matcher
+        - 2.1.6 Kiểm thử mô phỏng
+        - 2.1.7 Hỗ trợ kiểm thử Component với Snapshot
+        - 2.1.8 Chạy mã kiểm thử
+    - 2.2 RNTL
+        - 2.2.1 Giới thiệu về RNTL
+        - 2.2.2 Cài đặt cấu hình
+        - 2.2.3 Chức năng Render
+        - 2.2.4 Chức năng Queries
+        - 2.2.5 Chức năng Event
+        - 2.2.6 testID trong RNTL
+        - 2.2.6 Kết hợp với Jest
+    - 2.3 Detox
+        - 2.3.1 Giới thiệu về Detox
+        - 2.3.2 Cài đặt cầu hình
+        - 2.3.3 Tổ chức thư mục
+        - 2.2.4 testID trong RNTL
+        - 2.3.5 Các hàm Matcher
+        - 2.3.6 Các hàm Action
+        - 2.3.7 Các hàm Expect
+        - 2.3.8 Chạy mã kiểm thử
+    - 2.4 Các công cụ kiểm thử khác
+        - 2.4.1 Mocha
+        - 2.4.2 So sánh Mocha với Jest
+        - 2.4.3 Enzyme
+        - 2.4.4 So sánh Enzyme với RNTL
+        - 2.4.5 Appium
+        - 2.4.6 So sánh Appium với Detox
+
+- Chương 4: Cải tiến công cụ RNTL
+    - 4.1 Vấn đề của RNTL
+        - 4.1.1 Hạn chế của RNTL trong việc lấy thông tin từ Component
+        - 4.1.2 Khả năng kết hợp với Jest để kiểm tra thông tin của Component
+        - 4.1.3 Khả năng tối ưu trong việc viết mã kiểm thử
+    - 4.2 Giải pháp cho RNTL
+        - 4.2.1 Cải tiến RNTL để nhận thêm thông tin từ Component
+        - 4.2.2 Mở rộng thêm các chức năng lấy thông tin từ Component
+        - 4.2.3 Mở rộng thêm các chức năng kiểm tra thông tin từ Component
+
+- Chương 5: Thực nghiệm và kết quả
+    - 5.1 Cài đặt công cụ
+    - 5.2 Xây dựng case kiểm thử cho ứng dụng
+    - 5.3 Kết quả thực nghiệm và đánh giá
+        - 5.3.1 Đánh giá hiệu suất
+        - 5.3.2 Đánh giá tiện ích
+        - 5.3.2 Đánh giá tổng quan
+    - 5.4 Kết luận

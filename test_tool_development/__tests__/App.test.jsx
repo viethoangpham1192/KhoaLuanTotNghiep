@@ -14,6 +14,7 @@ import {
   getAllValueOf,
 } from '../src/test-tool/getAllInformation';
 import Login from '../src/components/Login/Login';
+import Hello from '../src/components/Hello/Hello';
 import {
   getStyleOf,
   getParentOf,
@@ -26,8 +27,9 @@ import {
   toBeDisable,
   toBeEnable,
 } from '../src/test-tool/toBeStatus';
+import renderer, {act} from 'react-test-renderer';
 
-test.only('render_2', async () => {
+test('render_2', async () => {
   const {getByTestId} = render(<Login title="login" />);
   const Component = getByTestId('Component');
 
@@ -47,6 +49,18 @@ test('render_1', async () => {
     backgroundColor: '#3e3e3e',
     borderRadius: 16,
   });
+});
+
+test.only('render_3', async () => {
+  const component = renderer.create(<Hello />);
+
+  const button = component.toJSON().children[2];
+
+  act(() => {
+    button.props.onClick();
+  });
+
+  console.log(component.toJSON().children[1]);
 });
 
 expect.extend({

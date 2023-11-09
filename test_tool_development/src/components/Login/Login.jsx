@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Text, TextInput, View, Switch} from 'react-native';
 
 function Login(props) {
-  const hello = true;
+  const hello = React.useRef(true);
   const [account, setAccount] = React.useState('Account');
   const [password, setPassword] = React.useState('Password');
   const [isLogin, setIsLogin] = React.useState(false);
