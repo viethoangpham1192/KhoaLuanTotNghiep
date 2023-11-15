@@ -27,7 +27,6 @@ import {
   toBeDisable,
   toBeEnable,
 } from '../src/test-tool/toBeStatus';
-import renderer, {act} from 'react-test-renderer';
 
 test('render_2', async () => {
   const {getByTestId} = render(<Login title="login" />);
@@ -52,15 +51,9 @@ test('render_1', async () => {
 });
 
 test.only('render_3', async () => {
-  const component = renderer.create(<Hello />);
-
-  const button = component.toJSON().children[2];
-
-  act(() => {
-    button.props.onClick();
-  });
-
-  console.log(component.toJSON().children[1]);
+  const {getByTestId} = render(<Hello />);
+  const component = getByTestId('main');
+  console.log(getParentOf(component));
 });
 
 expect.extend({

@@ -10,7 +10,7 @@ const Hello = () => {
   };
 
   return (
-    <View>
+    <View testID="main">
       <Text>Functional Component</Text>
       <Text>Count: {count}</Text>
       <Button title="Increase Count" onPress={increaseCount} />

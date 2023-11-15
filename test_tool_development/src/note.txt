@@ -85,3 +85,8 @@ x    - toBeHidden
 
 
 - xxx thư viện kiểm thử do react
+
+    - getAllParentOf
+    - getAllChildrenOf
+    - toHaveAllParent
+    - toHaveAllChildren
