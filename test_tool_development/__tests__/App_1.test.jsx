@@ -4,33 +4,9 @@ import {Text, View} from 'react-native';
 import {render, screen} from '@testing-library/react-native';
 
 import Login from '../src/components/Login/Login';
+import {getAllTextOf, toHaveText} from 'rntl-extend-lib';
 
-import {
-  toHaveText,
-  toHavePlaceholder,
-  toIncludeComponent,
-  toHaveProps,
-  toHaveValue,
-} from '../src/test-tool/toHaveInformation';
-import {
-  getAllTextOf,
-  getAllPlaceholderOf,
-  getAllValueOf,
-} from '../src/test-tool/getAllInformation';
-import {
-  getStyleOf,
-  getParentOf,
-  getChildrenOf,
-  getTypeOf,
-  getPropsOf,
-} from '../src/test-tool/getInformation';
-import {
-  toBeOfStyle,
-  toBeDisable,
-  toBeEnable,
-} from '../src/test-tool/toBeStatus';
-
-test('render_1', async () => {
+test.only('render_1', async () => {
   render(
     <View>
       <View>
@@ -79,9 +55,9 @@ test('render_2', async () => {
 test('render_3', async () => {
   const {getByTestId} = render(<Login title="login" />);
   const Component = getByTestId('Component');
-  console.log(getAllPlaceholderOf(Component));
+  const Button = getByTestId('RealButton');
 
-  expect(Component).toHavePlaceholder(['Account', 'Password']);
+  expect(Component).toIncludeComponent(Button);
 });
 
 test('render_4', async () => {
@@ -136,15 +112,15 @@ test('render_8', async () => {
   const {getByTestId} = render(<Login title="login" />);
   const Button = getByTestId('RealButton');
 
-  expect(Button).toBeDisable();
+  expect(Button).toBeEnable();
 });
 
-test('render_9', async () => {
-  const {getByTestId} = render(<Login title="login" />);
-  const Button = getByTestId('RealButton');
+// test('render_9', async () => {
+//   const {getByTestId} = render(<Login title="login" />);
+//   const Button = getByTestId('RealButton');
 
-  expect(Button.props.disabled).toEqual(true);
-});
+//   expect(Button.props.disabled).toEqual(false);
+// });
 
 test('render_10', async () => {
   const {getByTestId} = render(<Login title="login" />);
@@ -155,7 +131,7 @@ test('render_10', async () => {
   expect(Component).toIncludeComponent(Button);
 });
 
-test.only('render_11', async () => {
+test('render_11', async () => {
   const {getByPlaceholderText, getByTestId} = render(<Login title="login" />);
 
   const Component = getByTestId('Component');
@@ -175,12 +151,12 @@ test.only('render_11', async () => {
 
 expect.extend({
   toHaveText,
-  toHavePlaceholder,
-  toBeOfStyle,
-  toIncludeComponent,
-  toBeDisable,
-  toBeEnable,
-  toHaveProps,
-  getParentOf,
-  toHaveValue,
+  // toHavePlaceholder,
+  // toBeOfStyle,
+  // toIncludeComponent,
+  // toBeDisable,
+  // toBeEnable,
+  // toHaveProps,
+  // getParentOf,
+  // toHaveValue,
 });

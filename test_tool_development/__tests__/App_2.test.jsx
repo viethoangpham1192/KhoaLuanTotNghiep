@@ -29,3 +29,25 @@ describe('Add function', () => {
     result = 0;
   });
 });
+
+import Component from './Component.jsx';
+import {fireEvent, render} from '@testing-library/react-native';
+
+describe('test Component', () => {
+  test('Test button login', () => {
+    //render Component
+    const {getByText} = render(<Component />);
+
+    //tìm kiếm Login Button với 'login'
+    const LoginButton = getByText('Login');
+
+    //nhấn Login Button
+    fireEvent.press(LoginButton);
+
+    //tìm kiếm login status với 'Logged in successfully'
+    const LoginStatus = getByText('Logged in successfully');
+
+    //kiểm tra xem trạng thái 'Logged in successfully' có tồn tại hay không
+    expect(LoginStatus).toBeDefined();
+  });
+});

@@ -1,7 +1,6 @@
 import {type ReactTestInstance} from 'react-test-renderer';
 
 import {extractObjects} from './utils';
-import {ElementType} from 'react';
 
 function getStyleOf(element: ReactTestInstance) {
   const style: object = element.props.style;

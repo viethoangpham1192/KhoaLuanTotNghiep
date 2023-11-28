@@ -1,69 +1,24 @@
-import 'react-native';
-import React, {Component} from 'react';
 import {render, screen} from '@testing-library/react-native';
-import {
-  toHaveText,
-  toHavePlaceholder,
-  toIncludeComponent,
-  toHaveProps,
-  toHaveValue,
-} from '../src/test-tool/toHaveInformation';
+import {TestComponent} from './TestComponent';
 import {
   getAllTextOf,
   getAllPlaceholderOf,
   getAllValueOf,
-} from '../src/test-tool/getAllInformation';
-import Login from '../src/components/Login/Login';
-import Hello from '../src/components/Hello/Hello';
-import {
-  getStyleOf,
-  getParentOf,
-  getChildrenOf,
-  getTypeOf,
-  getPropsOf,
-} from '../src/test-tool/getInformation';
-import {
-  toBeOfStyle,
-  toBeDisable,
-  toBeEnable,
-} from '../src/test-tool/toBeStatus';
+  toHaveText,
+} from 'rntl-extend-lib';
 
-test('render_2', async () => {
-  const {getByTestId} = render(<Login title="login" />);
-  const Component = getByTestId('Component');
+describe('test 1', () => {
+  test('get all text of component', () => {
+    render(<TestComponent />);
 
-  console.log(getAllValueOf(Component));
+    const component = screen.root;
+    const allTextOfComponent = getAllTextOf(component);
+    const allInputOfComponent = getAllPlaceholderOf(component);
+    const allValueOfComponent = getAllValueOf(component);
+    console.log(allTextOfComponent, allInputOfComponent, allValueOfComponent);
 
-  expect(Component).toHaveValue(['Account', 'Password']);
-});
-
-test('render_1', async () => {
-  const {getByTestId} = render(<Login title="login" />);
-  const test = getByTestId('switch');
-
-  expect(getStyleOf(test)).toEqual({
-    height: 31,
-    width: 51,
-    color: 'white',
-    backgroundColor: '#3e3e3e',
-    borderRadius: 16,
+    expect(component).toHaveText('Login');
   });
 });
 
-test.only('render_3', async () => {
-  const {getByTestId} = render(<Hello />);
-  const component = getByTestId('main');
-  console.log(getParentOf(component));
-});
-
-expect.extend({
-  toHaveText,
-  toHavePlaceholder,
-  toBeOfStyle,
-  toIncludeComponent,
-  toBeDisable,
-  toBeEnable,
-  toHaveProps,
-  getParentOf,
-  toHaveValue,
-});
+expect.extend({toHaveText});

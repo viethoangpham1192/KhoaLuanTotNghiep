@@ -69,6 +69,8 @@ v    - toBeOfStyle
 v    - toBeOfType
 v    - toBeDisable
 v    - toBeEnable
+
+
 x    - toBeOnScreen
 x    - toBeHidden
 
@@ -88,5 +90,3 @@ x    - toBeHidden
 
     - getAllParentOf
     - getAllChildrenOf
-    - toHaveAllParent
-    - toHaveAllChildren

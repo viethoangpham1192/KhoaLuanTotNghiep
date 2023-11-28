@@ -1,0 +1,10 @@
+import type { ReactTestInstance, ReactTestRendererJSON } from "react-test-renderer";
+declare function arrayProcess(received: string[], threshold: string[], value: string): void;
+declare function receivedToIncludeThreshold(received: string[], threshold: string[]): boolean;
+declare function processGetAllText(element: ReactTestInstance | string, arr: string[]): void;
+declare function processGetAllPlaceholder(element: ReactTestInstance | string, arr: string[]): void;
+declare function processGetAllValue(element: ReactTestInstance | string, arr: (string | boolean | number)[]): void;
+declare function processGetAllTypeOf(json: ReactTestRendererJSON, arr: string[]): void;
+declare function extractObjects(arr: object[]): object[];
+declare function deepEqual(obj1: any, obj2: any): boolean;
+export { receivedToIncludeThreshold, processGetAllText, processGetAllPlaceholder, processGetAllValue, processGetAllTypeOf, extractObjects, deepEqual, arrayProcess, };

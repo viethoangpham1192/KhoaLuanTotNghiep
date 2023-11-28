@@ -1,6 +1,5 @@
 import type {ReactTestInstance} from 'react-test-renderer';
 import {
-  getAllChildrenOf,
   getAllPlaceholderOf,
   getAllTextOf,
   getAllTypeOf,
