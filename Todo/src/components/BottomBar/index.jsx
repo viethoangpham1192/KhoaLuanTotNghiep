@@ -40,13 +40,14 @@ function BottomBar(props) {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
+        <Text>{state}</Text>
         <Input
           placeholder="To do..."
           maxLength={200}
           onChangeText={text => {
             writeTask(text);
           }}
-          defaultValue={state}
+          value={state}
         />
         <AddButton onPress={storeTask} disabled={state === ''} />
       </View>

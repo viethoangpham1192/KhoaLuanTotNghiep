@@ -5,7 +5,8 @@ import {TextButton} from '../Button';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 60,
+    minHeight: 60,
+    height: 'fit-content',
     width: '80%',
     borderRadius: 20,
     backgroundColor: '#a8cc64',
@@ -15,6 +16,8 @@ const styles = StyleSheet.create({
   content: {
     flex: 8,
     paddingLeft: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
     color: '#eeeeee',
     fontWeight: '700',
     fontSize: 14,

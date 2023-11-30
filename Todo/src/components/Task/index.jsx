@@ -44,8 +44,8 @@ function Task(props) {
     const arr = props.tasks.filter(db => db.id !== props.id);
     props.setTasks(arr);
     props.setState(Date.now());
-    console.log(arr);
   }
+
   return (
     <View style={styles.container}>
       <Text style={styles.content}>{props.task}</Text>

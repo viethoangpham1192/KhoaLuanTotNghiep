@@ -40,7 +40,7 @@ function Main(props) {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scroll}>
-        <View style={{alignItems: 'center'}}>
+        <View style={{alignItems: 'center'}} testID="TaskList">
           {unfinishedList.map(db => (
             <Task
               task={db.task}
