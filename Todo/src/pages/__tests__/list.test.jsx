@@ -1,5 +1,5 @@
 import {fireEvent, render, screen, within} from '@testing-library/react-native';
-import Main from '../main';
+import List from '../List';
 import {
   getStyleOf,
   getAllTextOf,
@@ -35,7 +35,7 @@ const UpdateTasks = [
   },
 ];
 
-describe('Main', () => {
+describe('List', () => {
   let mockState;
   let mockTasks;
   let mockSetState;
@@ -79,9 +79,9 @@ describe('Main', () => {
     mockSetTasks = jest.fn();
   });
 
-  test('Main should render true', () => {
+  test('List should render true', () => {
     render(
-      <Main
+      <List
         state={mockState}
         tasks={mockTasks}
         setState={mockSetState}
@@ -89,14 +89,14 @@ describe('Main', () => {
       />,
     );
 
-    const MainPage = screen.root;
+    const ListPage = screen.root;
 
-    expect(MainPage).toBeDefined();
+    expect(ListPage).toBeDefined();
   });
 
-  test('Style of main should be true style', () => {
+  test('Style of List should be true style', () => {
     render(
-      <Main
+      <List
         state={mockState}
         tasks={mockTasks}
         setState={mockSetState}
@@ -104,21 +104,21 @@ describe('Main', () => {
       />,
     );
 
-    const MainPage = screen.root;
-    const Scroll = getChildrenOf(MainPage)[0];
-    const StyleOfMain = getStyleOf(MainPage);
+    const ListPage = screen.root;
+    const Scroll = getChildrenOf(ListPage)[0];
+    const StyleOfList = getStyleOf(ListPage);
     const StyleOfScroll = getStyleOf(Scroll);
 
-    console.log('Style Of Main', StyleOfMain);
+    console.log('Style Of List', StyleOfList);
     console.log('Style Of Scroll', StyleOfScroll);
 
-    expect(MainPage).toMatchStyle(TrueStyle);
+    expect(ListPage).toMatchStyle(TrueStyle);
     expect(Scroll).toMatchStyle(TrueStyleScroll);
   });
 
-  test('Task component should action in Main component', () => {
+  test('Task component should work correctly in List component', () => {
     render(
-      <Main
+      <List
         state={mockState}
         tasks={mockTasks}
         setState={mockSetState}
@@ -142,9 +142,9 @@ describe('Main', () => {
     expect(mockSetTasks).toBeCalled();
   });
 
-  test('Done component should action in Main component', () => {
+  test('Done Component should work correctly in List Component', () => {
     render(
-      <Main
+      <List
         state={mockState}
         tasks={mockTasks}
         setState={mockSetState}
@@ -163,9 +163,9 @@ describe('Main', () => {
     expect(mockSetTasks).toBeCalled();
   });
 
-  test('Main should change number of task when update component', () => {
+  test('List should change number of task when update component', () => {
     render(
-      <Main
+      <List
         state={mockState}
         tasks={mockTasks}
         setState={mockSetState}
@@ -180,7 +180,7 @@ describe('Main', () => {
     expect(NumberTaskBeforeUpdate).toBe(6);
 
     screen.update(
-      <Main
+      <List
         state={mockState}
         tasks={UpdateTasks}
         setState={mockSetState}
@@ -193,7 +193,7 @@ describe('Main', () => {
     expect(NumberTaskAfterUpdateTasks).toBe(6);
 
     screen.update(
-      <Main
+      <List
         state={Date.now()}
         tasks={UpdateTasks}
         setState={mockSetState}

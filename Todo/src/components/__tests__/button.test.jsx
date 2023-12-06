@@ -140,7 +140,7 @@ describe('Text Button', () => {
     expect(Button).toBeDefined();
   });
 
-  test('Text in Button should be true', () => {
+  test('The text in the Button should be correct', () => {
     render(<TextButton onPress={mockPress}>Click Me!</TextButton>);
 
     const Button = screen.root;
@@ -182,6 +182,7 @@ describe('Text Button', () => {
     console.log('Enable Info:', IsEnable);
     fireEvent.press(Button);
 
+    expect(Button).toBeDisable();
     expect(mockPress).not.toBeCalled();
   });
 });

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function Main(props) {
+function List(props) {
   const [doneList, setDoneList] = React.useState([]);
   const [unfinishedList, setUnfinishedList] = React.useState([]);
 
@@ -67,4 +67,4 @@ function Main(props) {
   );
 }
 
-export default Main;
+export default List;

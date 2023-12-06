@@ -9,7 +9,6 @@ import {
   toHaveText,
   toBeDisable,
 } from 'rntl-extend-lib';
-
 const TrueStyle = {
   height: '100%',
   backgroundColor: '#eeeeee',
@@ -56,13 +55,14 @@ describe('App', () => {
     expect(AddButton).toBeDisable();
   });
 
-  test.only('Should App Run correctly', () => {
+  test('Should App Run correctly', async () => {
     render(<App />);
 
     const Application = screen.root;
-    const AddButton = getParentOf(screen.getByText('+'));
-    const Input = screen.getByPlaceholderText('To do...');
+    let AddButton = getParentOf(screen.getByText('+'));
+    let Input = screen.getByPlaceholderText('To do...');
 
+    jest.useFakeTimers();
     fireEvent.changeText(Input, 'do exercise');
     fireEvent.press(AddButton);
 
@@ -72,22 +72,30 @@ describe('App', () => {
     console.log('All Text Of Task List:', AllTextOfTaskList);
     expect(TaskList).toHaveText(['do exercise', 'Done', 'Delete']);
 
+    AddButton = getParentOf(screen.getByText('+'));
+    Input = screen.getByPlaceholderText('To do...');
+
+    jest.useFakeTimers();
     fireEvent.changeText(Input, 'relax');
     fireEvent.press(AddButton);
 
+    jest.useFakeTimers();
     fireEvent.changeText(Input, 'study english');
     fireEvent.press(AddButton);
 
+    jest.useFakeTimers();
     fireEvent.changeText(Input, 'hang out');
     fireEvent.press(AddButton);
 
     AllTextOfTaskList = getAllTextOf(TaskList);
     console.log('All Text Of Task List:', AllTextOfTaskList);
 
-    expect(TaskList).toHaveText(['relax', 'study english', 'hang out']);
+    expect(Application).toHaveText(['relax', 'study english', 'hang out']);
 
     let ExerciseTask = getParentOf(screen.getByText('do exercise'));
     const ExerciseDoneButton = within(ExerciseTask).getByText('Done');
+
+    jest.useFakeTimers();
     fireEvent.press(ExerciseDoneButton);
 
     AllTextOfTaskList = getAllTextOf(TaskList);
@@ -98,6 +106,8 @@ describe('App', () => {
 
     const ExerciseUnfinishedButton =
       within(ExerciseDone).getByText('Unfinished');
+
+    jest.useFakeTimers();
     fireEvent.press(ExerciseUnfinishedButton);
 
     AllTextOfTaskList = getAllTextOf(TaskList);
@@ -105,8 +115,9 @@ describe('App', () => {
 
     ExerciseTask = getParentOf(screen.getByText('do exercise'));
     expect(ExerciseTask).toHaveText('Delete');
-
     const ExerciseDeleteButton = within(ExerciseTask).getByText('Delete');
+
+    jest.useFakeTimers();
     fireEvent.press(ExerciseDeleteButton);
 
     AllTextOfTaskList = getAllTextOf(TaskList);

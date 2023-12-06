@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Header from './src/components/Header';
-import Main from './src/pages/main';
+import List from './src/pages/List';
 import BottomBar from './src/components/BottomBar';
 
 const styles = StyleSheet.create({
@@ -18,7 +18,7 @@ function App() {
   return (
     <View style={styles.container}>
       <Header title={'Todo'} />
-      <Main
+      <List
         state={state}
         setState={setState}
         tasks={tasks}

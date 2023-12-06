@@ -1,23 +1,24 @@
 import {render, screen} from '@testing-library/react-native';
-import {TestComponent} from './TestComponent';
+import Login from '../src/components/Login/Login';
 import {
   getAllTextOf,
   getAllPlaceholderOf,
   getAllValueOf,
   toHaveText,
-} from 'rntl-extend-lib';
+  getEnabledInfo,
+} from './../rntl-extend';
 
 describe('test 1', () => {
   test('get all text of component', () => {
-    render(<TestComponent />);
+    render(<Login title="hello" />);
 
     const component = screen.root;
-    const allTextOfComponent = getAllTextOf(component);
-    const allInputOfComponent = getAllPlaceholderOf(component);
-    const allValueOfComponent = getAllValueOf(component);
-    console.log(allTextOfComponent, allInputOfComponent, allValueOfComponent);
+    // const allTextOfComponent = getAllTextOf(component);
+    // const allInputOfComponent = getAllPlaceholderOf(component);
+    // const allValueOfComponent = getAllValueOf(component);
+    console.log(getEnabledInfo(component));
 
-    expect(component).toHaveText('Login');
+    expect(component).toHaveText('hello');
   });
 });
 

@@ -1,6 +1,6 @@
-import { type ReactTestInstance } from "react-test-renderer";
+import {type ReactTestInstance} from 'react-test-renderer';
 
-import { extractObjects } from "../utils";
+import {extractObjects} from '../utils';
 
 function getStyleOf(element: ReactTestInstance) {
   const style: object = element.props.style;
@@ -34,7 +34,7 @@ function getPropsOf(element: ReactTestInstance, nameOfProps?: string) {
 }
 
 function getParentOf(
-  element: ReactTestInstance | null
+  element: ReactTestInstance | null,
 ): ReactTestInstance | null {
   if (element === null) {
     return null;
@@ -43,7 +43,7 @@ function getParentOf(
   let current = element.parent;
 
   while (current) {
-    if (typeof current.type === "string") {
+    if (typeof current.type === 'string') {
       return current;
     }
 
@@ -55,12 +55,12 @@ function getParentOf(
 
 function findChildren(
   element: ReactTestInstance,
-  arr: (string | ReactTestInstance)[]
+  arr: (string | ReactTestInstance)[],
 ) {
   let current: (string | ReactTestInstance)[] = element.children;
 
   for (const e of current) {
-    if (typeof e === "string" || typeof e.type === "string") {
+    if (typeof e === 'string' || typeof e.type === 'string') {
       arr.push(e);
     } else {
       findChildren(e, arr);
@@ -69,7 +69,7 @@ function findChildren(
 }
 
 function getChildrenOf(
-  element: ReactTestInstance | null
+  element: ReactTestInstance | null,
 ): (string | ReactTestInstance)[] | null {
   if (element === null) {
     return null;
@@ -80,6 +80,23 @@ function getChildrenOf(
   return child;
 }
 
+function getEnabledInfo(element: ReactTestInstance): boolean {
+  let result: boolean = false;
+  if (
+    getTypeOf(element) === 'TextInput' &&
+    element?.props?.editable === false
+  ) {
+    result = false;
+  } else {
+    result = !(
+      !!element?.props?.disabled ||
+      !!element?.props?.accessibilityState?.disabled ||
+      !!element?.props?.accessibilityStates?.includes('disabled')
+    );
+  }
+  return result;
+}
+
 export {
   getStyleOf,
   getValueOf,
@@ -87,4 +104,5 @@ export {
   getPropsOf,
   getParentOf,
   getChildrenOf,
+  getEnabledInfo,
 };

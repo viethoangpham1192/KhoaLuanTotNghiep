@@ -129,7 +129,7 @@ describe('Bottom Bar', () => {
     expect(Bottom).toHaveValue('do exercise');
   });
 
-  test('Add Button should disable when text input have not value', () => {
+  test('AddButton should disable when text input have not value', () => {
     render(
       <BottomBar
         setState={mockSetState}
@@ -149,7 +149,7 @@ describe('Bottom Bar', () => {
     expect(mockSetTasks).not.toBeCalled();
   });
 
-  test('Add Button should enable when text input have value', () => {
+  test('AddButton should enable when text input have value', () => {
     jest.useFakeTimers();
     render(
       <BottomBar
